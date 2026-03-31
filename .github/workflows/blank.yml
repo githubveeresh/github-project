@@ -8,6 +8,9 @@ jobs:
   build:    
     runs-on: ubuntu-latest    
     steps:      
-      # Print the article title using `echo` command      
-      - name: Print article title        
-        run: echo 'CI/CD Pipelines with GitHub Actions'
+      - name: Checkout the repostiory        
+        uses: actions/checkout@v4      
+      - name: Build the image        
+        run: docker build -t neduru/sample-project:latest .     
+      - name: List the built Docker image        
+        run: docker image ls
